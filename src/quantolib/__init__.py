@@ -10,4 +10,4 @@ from .generators import equity_generator_gbm
 
 
 # FROM UTILS
-from ._utils import OCContainer1D
+from .utils import OCContainer1D
