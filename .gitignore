@@ -38,3 +38,8 @@ compile_commands.json
 # dev private files 
 dev/
 helpers/
+
+
+
+# pytest artifacts
+.coverage
