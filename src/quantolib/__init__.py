@@ -1,12 +1,9 @@
 # FROM PLOT
-from .plot import plot_generic_over_time
-from .plot import plot_equity_over_time
-
+from .plot import *
 
 
 # FROM GENERATORS
-from .generators import equity_generator_gbm
-
+from .generators import *
 
 
 # FROM UTILS
