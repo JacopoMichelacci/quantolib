@@ -1,6 +1,6 @@
 import pytest
 
-from quantolib.utils._timeframe_utils import alias_pandas_tf, annualized_ts_parameter_scaling
+from quantolib._utils._timeframe_utils import alias_pandas_tf, annualized_ts_parameter_scaling
 
 
 def test_alias_pandas_tf_expected_mappings():

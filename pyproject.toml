@@ -17,8 +17,10 @@ dependencies = [
     "numpy>=2.4.3",
     "pandas>=3.0.1",
     "polars>=1.39.2",
+    "pyarrow>=23.0.1",
     "tqdm>=4.67.3",
     "wrds>=3.1.6",
+    "yfinance>=1.2.0",
 ]
 
 [tool.setuptools.packages.find]

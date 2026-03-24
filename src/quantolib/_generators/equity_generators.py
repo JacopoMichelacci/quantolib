@@ -2,8 +2,7 @@ import re
 import pandas as pd
 import polars as pl
 import numpy as np
-
-from quantolib.utils._timeframe_utils import alias_pandas_tf, annualized_ts_parameter_scaling
+from quantolib._utils._config import ALIAS_PANDAS_TF
 
 
 def equity_generator_gbm(
@@ -90,12 +89,12 @@ def equity_generator_gbm(
     unit_raw = match.group(2)
 
     # sanity checks
-    if unit_raw not in alias_pandas_tf:
+    if unit_raw not in ALIAS_PANDAS_TF:
         raise ValueError("ERROR(quantolib): unsupported timeframe format.")
     if ts_qty <= 0:
         raise ValueError("ERROR(quantolib): unsupported ts_qty, must be > 0")
 
-    pd_unit = alias_pandas_tf[unit_raw]
+    pd_unit = ALIAS_PANDAS_TF[unit_raw]
     pd_freq = f"{ts_qty}{pd_unit}"
 
     rng = np.random.default_rng(seed)
@@ -112,7 +111,7 @@ def equity_generator_gbm(
     ts = pd.date_range(start=start_ts, periods=n_periods, freq=pd_freq)
 
     # --- annualized parameter scaling ---
-    periods_per_year = annualized_ts_parameter_scaling(pd_unit, ts_qty, trade_weekends)
+    periods_per_year = ql.annualized_ts_parameter_scaling(pd_unit, ts_qty, trade_weekends)
 
     drift_step = drift / periods_per_year
     vol_step = vol / np.sqrt(periods_per_year)
